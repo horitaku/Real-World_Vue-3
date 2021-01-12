@@ -20,23 +20,22 @@ export default {
     }
   },
   created() {
-    axios.get('https://my-json-server.typicode.com/horitaku/Real-World_Vue-3/orders', {
-      proxy: {
-        host: 'http://vipview1.khi.co.jp',
-        port: '8080',
-        protocol: 'http',
-        auth: {
-          username: 'horikawa_takuya',
-          password: 'u93ppm2km9'
-        }
-      }
-    })
-
+    axios.get('https://my-json-server.typicode.com/horitaku/Real-World_Vue-3/orders')
+      // , {
+      // proxy: {
+      //   host: 'http://vipview1.khi.co.jp',
+      //   port: '8080',
+      //   protocol: 'http',
+      //   auth: {
+      //     username: 'horikawa_takuya',
+      //     password: 'u93ppm2km9'
+      //   }
+      // }
       .then(response => {
         console.log('orders:', response.data)
         //this.orders = response.data
       })
-      .catch()(error => {
+      .catch(error => {
          console.log(error)
       })
   }
