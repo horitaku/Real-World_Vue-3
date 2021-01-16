@@ -7,7 +7,7 @@ const routes = [
     path: "/",
     name: "OrderList",
     component: OrderList,
-    props: route =>({
+    props: route => ({
       page: parseInt(route.query.page) || 1
     })
   },

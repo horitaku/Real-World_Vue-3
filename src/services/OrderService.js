@@ -13,6 +13,9 @@ export default {
   getEvents(perPage, page) {
     return apiClient.get('/orders?_limit=' + perPage + '&_page=' + page)
   },
+  // getEvents() {
+  //   return apiClient.get('/orders')
+  // },
   getEvent(id) {
     return apiClient.get('/orders/' + id)
   }
