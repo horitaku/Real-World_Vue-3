@@ -1,16 +1,33 @@
 <template>
-  <HeaderBar></HeaderBar>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">WorkOrders</router-link> |
-      <router-link to="/about">About</router-link>
-    <h1>Events For Good</h1> <!-- new element -->
-    </div>
-    <router-view />
-  </div>
+  <label>{{ label }}</label>
+  <input
+    v-bind="$attrs"
+    :placeholder="label"
+    class="field"
+    :value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+  >
+
+
 </template>
 
-<style>
+<script>
+export default {
+  //name: "BaseInput.vue",
+  props: {
+    label: {
+      type: String,
+      default: ''
+    },
+    modelValue: {
+      type: [String, Number],
+      default: ''
+    }
+  }
+};
+</script>
+
+<style scoped>
 html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -318,10 +335,3 @@ select::ms-expand {
   padding: 0 20px;
 }
 </style>
-
-<script>
-import HeaderBar from "@/components/HeaderBar";
-export default {
-  components: { HeaderBar }
-}
-</script>

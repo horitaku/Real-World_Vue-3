@@ -7,10 +7,11 @@
 <script>
 // @ is an alias to /src
 import WorkOrder from '@/components/WorkOrder.vue'
-import axios from 'axios'
+import OrderService from "@/services/OrderService";
 
 export default {
   name: 'OrderList',
+  props: ['page'],
   components: {
     WorkOrder
   },
@@ -20,23 +21,12 @@ export default {
     }
   },
   created() {
-    axios.get('https://my-json-server.typicode.com/horitaku/Real-World_Vue-3/orders')
-      // , {
-      // proxy: {
-      //   host: 'http://vipview1.khi.co.jp',
-      //   port: '8080',
-      //   protocol: 'http',
-      //   auth: {
-      //     username: 'horikawa_takuya',
-      //     password: 'u93ppm2km9'
-      //   }
-      // }
+    OrderService.getEvents(2, this.page)
       .then(response => {
-        console.log('orders:', response.data)
-        //this.orders = response.data
+        this.events = response.data
       })
       .catch(error => {
-         console.log(error)
+        console.log(error)
       })
   }
 }
