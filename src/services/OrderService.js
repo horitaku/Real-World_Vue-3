@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  baseURL: 'https://my-json-server.typicode.com/horitaku/Touring-Vue-Router',
+  baseURL: 'https://my-json-server.typicode.com/horitaku/Real-World_Vue-3',
   withCredentials: false,
   headers: {
     Accept: 'application/json',
