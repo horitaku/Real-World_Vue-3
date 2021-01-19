@@ -1,8 +1,13 @@
 <template>
-  <div class="work-order">
-    <span>@ {{ order.time }} on {{ order.date }}</span>
-    <h4>{{ order.title }}</h4>
-  </div>
+  <router-link
+    class="order-link"
+    :to="{ name: 'OrderDetails', params: { id: order.id } }"
+  >
+    <div class="work-order">
+      <span>@ {{ order.time }} on {{ order.date }}</span>
+      <h4>{{ order.title }}</h4>
+    </div>
+  </router-link>
 </template>
 
 <script>
@@ -46,4 +51,10 @@ export default {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
+
+.order-link {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
 </style>
